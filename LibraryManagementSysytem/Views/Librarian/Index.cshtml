@@ -1,0 +1,52 @@
+﻿@model List<Librarian>
+<div class="container">
+    <div class="row pt-4 pb-3">
+        <div class="col-6">
+            <h2 class="text-primary">
+                Librarian List
+            </h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Librarian" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i>Create New Librarian
+            </a>
+        </div>
+    </div>
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Edit</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Lib in Model.OrderBy(u=>u.First_Name))
+        {
+            <tr>
+                <th scope="row">@Lib.ID</th>
+                <td>@Lib.First_Name  @Lib.Last_Name</td>
+                <td>@Lib.Email</td>
+                <td>@Lib.Phone</td>
+                <td>
+                    <div class="w-75 btn-group" role="group">
+                        <a asp-controller="Librarian" asp-action="Edit" class="btn btn-primary mx-2">
+                                <i class="bi bi-pencil-square"></i> Edit
+                        </a>
+                        <a asp-controller="Librarian" asp-action="Delete" class="btn btn-danger mx-2">
+                                <i class="bi bi-trash3-fill"></i>Delete
+                        </a>
+                    </div>
+
+                </td>
+
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+</div>
