@@ -1,4 +1,4 @@
-using LibraryManagementSysytem.Data;
+using DataAccessLayer.context;
 using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagementSysytem
@@ -9,12 +9,16 @@ namespace LibraryManagementSysytem
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-            builder.Services.AddControllersWithViews();
+            //Add services to the container.
+           builder.Services.AddControllersWithViews();
+            //builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            //        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            var conncetionstring = builder.Configuration.GetConnectionString("DefaultConnection");
+
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-
+                options.UseSqlServer(conncetionstring));
+            //builder.Services.AddAuthorization();
+            //builder.Services.AddControllers();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

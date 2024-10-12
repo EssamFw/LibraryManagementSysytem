@@ -1,5 +1,5 @@
-﻿using LibraryManagementSysytem.Data;
-using LibraryManagementSysytem.Models;
+﻿using DataAccessLayer.context;
+using DataAccessLayer.entities;
 
 using Microsoft.AspNetCore.Mvc;
 
@@ -31,6 +31,8 @@ namespace LibraryManagementSysytem.Controllers
             {
                 _db.Librarians.Add(lib);
                 _db.SaveChanges();
+                TempData["Success"] = "تم الإضافة بنجاح";
+
                 return RedirectToAction("Index");
 
             }
@@ -43,7 +45,9 @@ namespace LibraryManagementSysytem.Controllers
             {
                 return NotFound();
             }
-            Librarian LibrarianfromDB = _db.Librarians.Find(id);
+            Librarian? LibrarianfromDB = _db.Librarians.Find(id);
+            //Librarian? LibrarianfromDB1 = _db.Librarians.FirstOrDefault(u=>u.ID==id);
+            //Librarian? LibrarianfromDB2 = _db.Librarians.Where(u=>u.ID==id).FirstOrDefault();
             if (LibrarianfromDB==null)
             {
                 return NotFound();
@@ -51,24 +55,54 @@ namespace LibraryManagementSysytem.Controllers
             return View(LibrarianfromDB);
         }
 
-        public IActionResult Create()
-        {
-            return View();
-        }
+
 
         [HttpPost]
-        public IActionResult Create(Librarian lib)
+        public IActionResult Edit(Librarian lib)
         {
             //if(lib.First_Name.ToLower() == lib.DisplayOrder.Tostring)
             if (ModelState.IsValid)
             {
-                _db.Librarians.Add(lib);
+                _db.Librarians.Update(lib);
                 _db.SaveChanges();
+                TempData["Success"] = "تم تحديث البيانات بنجاح";
+
                 return RedirectToAction("Index");
 
             }
             return View();
 
+        }
+
+        public IActionResult Delete(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            Librarian? LibrarianfromDB = _db.Librarians.Find(id);
+
+            if (LibrarianfromDB == null)
+            {
+                return NotFound();
+            }
+            return View(LibrarianfromDB);
+        }
+
+
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeletePOST(int? id)
+        {
+                Librarian? Lib = _db.Librarians.Find(id);
+                if (Lib == null)
+                {
+                    return NotFound();
+                }
+                _db.Librarians.Remove(Lib);
+                _db.SaveChanges();
+            TempData["Success"] = "تم الحذف بنجاح";
+                return RedirectToAction("Index");
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using DataAccessLayer.entities;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LibraryManagementSysytem.Models
 {

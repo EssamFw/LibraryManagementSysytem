@@ -1,8 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 
-namespace LibraryManagementSysytem.Models
+namespace DataAccessLayer.entities
+
 {
     public class Librarian
     {

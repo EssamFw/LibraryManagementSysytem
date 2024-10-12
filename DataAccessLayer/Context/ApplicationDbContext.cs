@@ -1,9 +1,9 @@
-﻿using LibraryManagementSysytem.Models;
+﻿using DataAccessLayer.entities;
+using LibraryManagementSysytem.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Migrations;
 
 
-namespace LibraryManagementSysytem.Data
+namespace DataAccessLayer.context
 {
     public class ApplicationDbContext : DbContext
 
