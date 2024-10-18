@@ -9,14 +9,16 @@ namespace DataAccessLayer.Repositories
 {
     public interface ILibrarianRepository
     {
-        List<Librarian> GetAll();
-        Librarian? GetLibrarianbyId(int id);
-        void Add(Librarian id);
+
+
+        Task<List<Librarian>> GetAll();
+        Task<Librarian?> GetLibrarianbyId(int id);
+        Task Add(Librarian id);
 
         void update(Librarian id);
-        void Delete(int id);
+        Task Delete(int id);
 
-        void SaveChanges();
-
+        Task SaveChanges();
+      
     }
 }

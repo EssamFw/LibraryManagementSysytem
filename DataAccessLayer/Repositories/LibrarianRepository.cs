@@ -1,5 +1,6 @@
 ﻿using DataAccessLayer.context;
 using DataAccessLayer.entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,38 +16,39 @@ namespace DataAccessLayer.Repositories
         {
             _dbcontext = dbContext;
         }
-        public void Add(Librarian librarian)
+        public async Task Add(Librarian librarian)
         {
-            _dbcontext.Librarians.Add(librarian);
+           await _dbcontext.Librarians.AddAsync(librarian);
         }
 
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            var librarian=_dbcontext.Librarians.FirstOrDefault(p=>p.ID==id);
+            var librarian = await _dbcontext.Librarians.FirstOrDefaultAsync(p => p.ID == id);
             if (librarian != null)
             {
                 _dbcontext.Librarians.Remove(librarian);
             }
         }
 
-        public List<Librarian> GetAll()
+        public async Task<List<Librarian>>  GetAll()
         {
-            return _dbcontext.Librarians.ToList();
+            return await _dbcontext.Librarians.ToListAsync();
         }
 
-        public Librarian? GetLibrarianbyId(int id)
+        public async Task <Librarian?> GetLibrarianbyId(int id)
         {
-            return _dbcontext.Librarians.FirstOrDefault( librarian=>librarian.ID == id);
+            return await _dbcontext.Librarians.FirstOrDefaultAsync( librarian=>librarian.ID == id);
         }
-
         public void update(Librarian librarian)
         {
             _dbcontext.Librarians.Update(librarian);
         }
-
-        public void SaveChanges()
+        public async Task SaveChanges()
         {
-            _dbcontext.SaveChanges();
+           await _dbcontext.SaveChangesAsync();
         }
+
+
+
     }
 }

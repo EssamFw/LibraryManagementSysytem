@@ -23,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ActionRequests\" />
     <Folder Include="Data\" />
   </ItemGroup>
 

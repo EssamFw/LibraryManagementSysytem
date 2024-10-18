@@ -1,10 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 
-namespace DataAccessLayer.entities
-
+namespace LibraryManagementSysytem.ActionRequests
 {
-    public partial class Librarian
+    public class CreateLibrarianActionRequest
     {
         [Key]
         public int ID { get; set; }
@@ -12,8 +11,8 @@ namespace DataAccessLayer.entities
         [MaxLength(100)]
         [Required]
         [DisplayName("First Name")]
-        
-        
+
+
         public string First_Name { get; set; }
 
         [MaxLength(100)]
@@ -25,22 +24,15 @@ namespace DataAccessLayer.entities
         [MaxLength(100)]
         [EmailAddress]
         [Required]
-        
+
         [DisplayName("Email Address")]
-        
+
         public string Email { get; set; }
 
         [MaxLength(20)]
         [Required]
         [DisplayName("Phone Number")]
-        //[Range(10,15 ,ErrorMessage ="Wrong Number")]
+    
         public string Phone { get; set; }
-
-
-
     }
-    public partial class Librarian
-        {
-
-        }
 }

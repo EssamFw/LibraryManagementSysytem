@@ -10,9 +10,8 @@ namespace DataAccessLayer.context
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         { }
-            //=====================================================================
 
-
+        //=====================================================================
             public DbSet<Book> Books { get; set; }
             public DbSet<Member> Members { get; set; }
             public DbSet<Librarian> Librarians { get; set; }
@@ -21,6 +20,9 @@ namespace DataAccessLayer.context
             public DbSet<Penalty> Penalties { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfigurationsFromAssembly
+                (
+                typeof(ApplicationDbContext).Assembly);
             modelBuilder.Entity<BookTransaction>()
                 .HasKey(bt => new { bt.BookID, bt.TransactionID }); // Composite key
             modelBuilder.Entity<Transaction>()
@@ -40,13 +42,24 @@ namespace DataAccessLayer.context
                      new Librarian {ID=2,First_Name="Amr",Last_Name="ElMawrdy",Email="Amr@gmail.com",Phone= "0102 120 2971" },
                      new Librarian {ID=3,First_Name="Mohammed",Last_Name="Ali",Email="MohammedAli@gmail.com",Phone="01011224706"}
                 );
+            //modelBuilder.Entity<Transaction>().HasData(
+            //    new Librarian { ID = 1, First_Name = "Essam", Last_Name = "Fawzy", Email = "Essamfw@gmail.com", Phone = "01015044706" },
+            //         new Librarian { ID = 2, First_Name = "Amr", Last_Name = "ElMawrdy", Email = "Amr@gmail.com", Phone = "0102 120 2971" },
+            //         new Librarian { ID = 3, First_Name = "Mohammed", Last_Name = "Ali", Email = "MohammedAli@gmail.com", Phone = "01011224706" }
+            //    );
+
+
 
 
             base.OnModelCreating(modelBuilder);
+
+
         }
+        
 
-
-
+        /*
+         
+         */
 
 
 

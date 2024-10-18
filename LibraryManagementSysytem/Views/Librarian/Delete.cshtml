@@ -1,9 +1,10 @@
 ﻿@using DataAccessLayer.entities
+@using BusinessLayer.DTOs
 @{
     ViewData["Title"] = "Edit";
 }
 
-@model Librarian
+@model LibrarianDetailsDTO
 
 <div class="card shadow border-0 mt-4">
     <div class="card-header bg-secondary bg-gradient ms-lg-0 py-3">
@@ -51,6 +52,7 @@
             <div class="row">
                 <div class="col-6 col-md-3">
                     <button type="submit" class="btn btn-danger">Delete</button>
+                    <a asp-controller="Librarian" asp-action="Delete" class="btn btn-secondary border form-control"></a>
                 </div>
 
                 <div class="col-6 col-md-3">
