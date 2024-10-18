@@ -1,22 +1,16 @@
-﻿@using DataAccessLayer.entities
-@using BusinessLayer.DTOs
-@{
-    ViewData["Title"] = "Edit";
-}
-
-
-@model LibrarianDetailsDTO
+﻿@using LibraryManagementSysytem.ActionRequests
+@model CreateMemberActionRequest
 <div class="card shadow border-0 mt-4">
     <div class="card-header bg-secondary bg-gradient ms-lg-0 py-3">
         <div class="row">
             <div class="col-12 text-center">
-                <h2 class="text-white">Edit Librarian</h2>
+                <h2 class="text-white">Create Member</h2>
             </div>
         </div>
     </div>
     <div class="card-body p-4">
-        <form method="post">
-            <input asp-for="ID" hidden />
+
+        <form method="post" class="row">
             <div class="form-group">
                 <div asp-validation-summary="All"></div>
                 <label asp-for="First_Name" for="inputFirstName"></label>
@@ -51,21 +45,20 @@
             </div>
             <div class="row">
                 <div class="col-6 col-md-3">
-   
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="submit" class="btn btn-primary">Create</button>
                 </div>
 
-
                 <div class="col-6 col-md-3">
-                    <a asp-controller="Librarian" asp-action="Index" class="btn btn-secondary border form-control">
+                    <a asp-controller="Member" asp-action="Index" class="btn btn-secondary border form-control">
                         Back To List
                     </a>
                 </div>
             </div>
 
         </form>
-
-
     </div>
+
+
+</div>
 
 

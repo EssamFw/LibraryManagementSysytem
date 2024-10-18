@@ -1,6 +1,8 @@
 using BusinessLayer.Services;
+using BusinessLayer.Services.Members;
 using DataAccessLayer.context;
 using DataAccessLayer.Repositories;
+using DataAccessLayer.Repositories.Members;
 using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagementSysytem
@@ -11,30 +13,20 @@ namespace LibraryManagementSysytem
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            /*
-             * 
-            builder.Services.AddScoped<IProductService, ProductService>();
-            builder.Services.AddScoped<ICustomerService, CustomerService>();
-            builder.Services.AddScoped<IOrderService, OrderService>();
 
-
-            builder.Services.AddScoped<IProductRepository, ProductRepository>();
-            builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
-            builder.Services.AddScoped<IOrderRepository, OrderRepository>();
-             */
             builder.Services.AddScoped<ILibrarianService, LibrarianService>();
             builder.Services.AddScoped<ILibrarianRepository, LibrarianRepository>();
+            builder.Services.AddScoped<IMemberService, MemberService>();
+            builder.Services.AddScoped<IMemberRepository, MemberRepository>();
 
             //Add services to the container.
             builder.Services.AddControllersWithViews();
-            //builder.Services.AddDbContext<ApplicationDbContext>(options =>
-            //        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
             var conncetionstring = builder.Configuration.GetConnectionString("DefaultConnection");
-             builder.Services.AddScoped<ILibrarianService , LibrarianService>();
-            builder.Services.AddScoped<ILibrarianRepository , LibrarianRepository>();
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(conncetionstring)
-                .LogTo(Console.WriteLine ,LogLevel.Information));
+                        options.UseSqlServer(conncetionstring)
+                        .LogTo(Console.WriteLine ,LogLevel.Information));
             //builder.Services.AddAuthorization();
             //builder.Services.AddControllers();
             var app = builder.Build();

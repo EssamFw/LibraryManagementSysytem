@@ -1,16 +1,16 @@
 ﻿@using DataAccessLayer.entities
-@using BusinessLayer.DTOs
+@using BusinessLayer.DTOs.Members
 @{
     ViewData["Title"] = "Edit";
 }
 
+@model MemberDetailsDTO
 
-@model LibrarianDetailsDTO
 <div class="card shadow border-0 mt-4">
     <div class="card-header bg-secondary bg-gradient ms-lg-0 py-3">
         <div class="row">
             <div class="col-12 text-center">
-                <h2 class="text-white">Edit Librarian</h2>
+                <h2 class="text-white">Delete Member</h2>
             </div>
         </div>
     </div>
@@ -20,27 +20,27 @@
             <div class="form-group">
                 <div asp-validation-summary="All"></div>
                 <label asp-for="First_Name" for="inputFirstName"></label>
-                <input asp-for="First_Name" class="form-control" id="inputFirstName">
-                <span asp-validation-for="First_Name" class="text-danger"></span>
+                <input asp-for="First_Name" disabled class="form-control" id="inputFirstName">
+
             </div>
             <div class="form-group">
                 <label asp-for="Last_Name" for="inputLastName"></label>
-                <input asp-for="Last_Name" class="form-control" id="inputLastName">
-                <span asp-validation-for="Last_Name" class="text-danger"></span>
+                <input asp-for="Last_Name" disabled class="form-control" id="inputLastName">
+
 
             </div>
             <div class="form-group">
                 <label asp-for="Email" for="exampleInputEmail1"></label>
-                <input asp-for="Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input asp-for="Email" disabled type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                <span asp-validation-for="Email" class="text-danger"></span>
+
 
             </div>
 
             <div class="form-group">
                 <label asp-for="Phone" for="inputPhone"></label>
-                <input asp-for="Phone" class="form-control" id="inputPhone">
-                <span asp-validation-for="Phone" class="text-danger"></span>
+                <input asp-for="Phone" disabled class="form-control" id="inputPhone">
+
 
             </div>
 
@@ -51,13 +51,12 @@
             </div>
             <div class="row">
                 <div class="col-6 col-md-3">
-   
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <a asp-controller="Member" asp-action="Delete" class="btn btn-secondary border form-control"></a>
                 </div>
 
-
                 <div class="col-6 col-md-3">
-                    <a asp-controller="Librarian" asp-action="Index" class="btn btn-secondary border form-control">
+                    <a asp-controller="Member" asp-action="Index" class="btn btn-secondary border form-control">
                         Back To List
                     </a>
                 </div>
@@ -65,7 +64,7 @@
 
         </form>
 
-
     </div>
+
 
 

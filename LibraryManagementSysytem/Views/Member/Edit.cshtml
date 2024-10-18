@@ -1,16 +1,16 @@
 ﻿@using DataAccessLayer.entities
-@using BusinessLayer.DTOs
+@using BusinessLayer.DTOs.Members
 @{
     ViewData["Title"] = "Edit";
 }
 
 
-@model LibrarianDetailsDTO
+@model MemberDetailsDTO
 <div class="card shadow border-0 mt-4">
     <div class="card-header bg-secondary bg-gradient ms-lg-0 py-3">
         <div class="row">
             <div class="col-12 text-center">
-                <h2 class="text-white">Edit Librarian</h2>
+                <h2 class="text-white">Edit Member</h2>
             </div>
         </div>
     </div>
@@ -51,13 +51,13 @@
             </div>
             <div class="row">
                 <div class="col-6 col-md-3">
-   
+
                     <button type="submit" class="btn btn-primary">Update</button>
                 </div>
 
 
                 <div class="col-6 col-md-3">
-                    <a asp-controller="Librarian" asp-action="Index" class="btn btn-secondary border form-control">
+                    <a asp-controller="Member" asp-action="Index" class="btn btn-secondary border form-control">
                         Back To List
                     </a>
                 </div>
