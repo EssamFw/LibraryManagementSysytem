@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSysytem.Models
+﻿namespace DataAccessLayer.Entities
 {
     public class BookTransaction
     {

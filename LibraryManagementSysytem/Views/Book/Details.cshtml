@@ -1,0 +1,18 @@
+﻿@using LibraryManagementSysytem.VMs.Books
+
+@model BookDetailsVM
+
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="~/Images/@Model.Image" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Title</h5>
+        <p class="card-text">@Model.Genre</p>
+        <p class="card-text">@Model.Author</p>
+        <p class="card-text">"Rent/Day : @Model.Daily_Rent "</p>
+        <p class="card-text">@Model.status</p>
+        <p class="card-text">@Model.LibrarianID_FK</p>
+        <p class="card-text">@Model.Amount</p>
+
+        <a href="/book/index" class="btn btn-primary">Home</a>
+    </div>
+</div>

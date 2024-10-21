@@ -1,0 +1,113 @@
+﻿@using System
+@using LibraryManagementSysytem.VMs.Books
+@using LibraryManagementSysytem.Controllers.Books
+@using LibraryManagementSysytem.ActionRequests.Books
+@model List<BookListVM>
+
+
+
+
+<nav class="navbar navbar-light bg-light">
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="searchTerm" for="searchTerm" name="searchTerm" asp-action="Post">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <button class="btn btn-primary" type="submit" href="/book/index" style="background-color:orangered ; border:hidden ">Home</button>
+
+        <div>
+            <a href="/book/add" class="btn btn-primary" style="background-color:orangered ; border:hidden "> ADD New Book</a>
+        </div>
+
+    </form>
+    @using (Html.BeginForm("Index", "Book", FormMethod.Get))
+    {
+        <label for="category">Filter By Genre</label>
+        <select name="searchTerm" id="category">
+            @*     <optgroup>Genre</optgroup> *@
+            <option value="Drama">Drama</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Horror">Horror</option>
+            <option value="Romance">Romance</option>
+            <option value="Since Fiction">Since-Fiction</option>
+            <option value="History">History</option>
+            <option value="Biography"> Biography</option>
+            <option value="Crime"> Crime</option>
+
+
+        </select>
+
+        <input type="submit" value="Filter" />
+    }
+
+
+</nav>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">DailyRent</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Author</th>
+            <th scope="col">LibrarianID</th>
+            <th scope="col">status</th>
+            <th scope="col">Image</th>
+            <th scope="col">Details</th>
+            <th scope="col">Remove</th>
+            <th scope="col">Edit</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <th scope="row">@item.ID</th>
+                <td>@item.Title</td>
+                <td>@item.Daily_Rent</td>
+                <td>@item.Amount</td>
+                <td>@item.Genre</td>
+                <td>@item.Author</td>
+                <td>@item.LibrarianID_FK</td>
+                <td>@item.status</td>
+                <td><img src="/Images/@item.Image" alt="sorry something error" width=50px height=80px /> </td>
+
+                <td>
+                    <a href="/book/details/@item.ID" class="btn btn-primary">Details</a>
+                </td>
+
+                <td>
+
+                    <a href="/book/remove/@item.ID" class="btn btn-danger" onclick="return confirmDelete()"> Remove </a>
+
+                </td>
+                <script>
+                    function confirmDelete() {
+                        return confirm("Are you sure you want to delete this book?");
+                    }
+                </script>
+
+                <td>
+                    <a href="/book/update/@item.ID" class="btn btn-primary"> Edit </a>
+                </td>
+
+
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+
+

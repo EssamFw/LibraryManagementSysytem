@@ -1,7 +1,7 @@
 ﻿using BusinessLayer.DTOs;
 using BusinessLayer.DTOs.Members;
-using DataAccessLayer.entities;
-using LibraryManagementSysytem.Models;
+using DataAccessLayer.Entities;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

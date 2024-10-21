@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace LibraryManagementSysytem.Models
+namespace DataAccessLayer.Entities
 {
     public class Member
     {

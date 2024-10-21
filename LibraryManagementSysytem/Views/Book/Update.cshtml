@@ -1,0 +1,72 @@
+﻿@using LibraryManagementSysytem.ActionRequests.Books
+@model UpdateBookActionRequest
+
+
+<h2>Update Book</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    // Displays a summary of all errors
+    //@Html.ValidationMessageFor(m => m.ID)
+    @Html.ValidationMessageFor(m => m.Title)
+    @Html.ValidationMessageFor(m => m.Genre)
+    @Html.ValidationMessageFor(m => m.Author)
+    @Html.ValidationMessageFor(m => m.Amount)
+    @Html.ValidationMessageFor(m => m.LibrarianID_FK)
+    @Html.ValidationMessageFor(m => m.Daily_Rent)
+
+}
+
+<form class="form-control" method="post" enctype="multipart/form-data">
+
+    @* <div>
+    <label for="ID">Book ID </label>
+    <input id="ID" asp-for="ID" readonly />
+    </div >*@
+
+    <div>
+        <label for="ProductName">Book Title:</label>
+        <input class="form-control" id="ProductName" asp-for="Title" />
+    </div>
+
+
+    <div>
+        <label for="Price">Author:</label>
+        <input class="form-control" id="Price" asp-for="Author" />
+    </div>
+
+    <div>
+        <label for="Image">Book Image :</label>
+        <input class="form-control" type="file" id="Image" name="imageFile" />
+    </div>
+
+    @* <div>
+    <label for="Status">status:</label>
+    <input id="Status" asp-for="status" />
+    </div> *@
+
+    <div>
+        <label for="Amount">Amount:</label>
+        <input class="form-control" id="Amount" asp-for="Amount" />
+    </div>
+
+    <div>
+        <label for="DailyRent">Daily Rent:</label>
+        <input class="form-control" id="DailyRent" asp-for="Daily_Rent" />
+    </div>
+
+    <div>
+        <label for="Genre">Genre:</label>
+        <input class="form-control" id="Genre" asp-for="Genre" />
+    </div>
+
+    <div>
+        <label for="ID">Your ID:</label>
+        <input class="form-control" id="ID" asp-for="LibrarianID_FK" />
+    </div>
+
+
+    <button class="btn-primary" type="submit">Update Book</button>
+
+</form>

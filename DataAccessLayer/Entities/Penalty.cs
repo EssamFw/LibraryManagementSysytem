@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LibraryManagementSysytem.Models
+namespace DataAccessLayer.Entities
 {
     public class Penalty
     {

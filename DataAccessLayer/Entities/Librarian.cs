@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 
-namespace DataAccessLayer.entities
+namespace DataAccessLayer.Entities
 
 {
     public partial class Librarian
