@@ -16,7 +16,7 @@ namespace DataAccessLayer.context
             public DbSet<Book> Books { get; set; }
             public DbSet<Member> Members { get; set; }
             public DbSet<Librarian> Librarians { get; set; }
-            public DbSet<Transaction> Transactions { get; set; }
+            public DbSet<TransactionB> Transactions { get; set; }
             public DbSet<BookTransaction> BookTransactions { get; set; }
             public DbSet<Penalty> Penalties { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -26,7 +26,7 @@ namespace DataAccessLayer.context
                 typeof(ApplicationDbContext).Assembly);
             modelBuilder.Entity<BookTransaction>()
                 .HasKey(bt => new { bt.BookID, bt.TransactionID }); // Composite key
-            modelBuilder.Entity<Transaction>()
+            modelBuilder.Entity<TransactionB>()
                 .Property(t => t.Total_Cost)
                 .HasPrecision(18, 4);
             modelBuilder.Entity<Penalty>()
@@ -99,13 +99,7 @@ namespace DataAccessLayer.context
         }
         
 
-        /*
-         
-         */
 
-
-
-        //=====================================================================
 
     }
 

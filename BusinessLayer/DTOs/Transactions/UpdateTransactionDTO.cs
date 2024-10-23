@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLayer.DTOs.Tranactions
+namespace BusinessLayer.DTOs.Transactions
 {
-    public class UpdateTranactionDTO
+    internal class UpdateTransactionDTO
     {
     }
 }

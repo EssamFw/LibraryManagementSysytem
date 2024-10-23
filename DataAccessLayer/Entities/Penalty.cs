@@ -14,7 +14,7 @@ namespace DataAccessLayer.Entities
 
         [ForeignKey("Transaction")]
         public int TransactionID_FK { get; set; }
-        public Transaction Transaction { get; set; }
+        public TransactionB Transaction { get; set; }
     }
 
 }

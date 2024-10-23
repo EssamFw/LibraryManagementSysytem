@@ -1,13 +1,17 @@
 using BusinessLayer.Services.Books;
 using BusinessLayer.Services.Librarians;
 using BusinessLayer.Services.Members;
+using BusinessLayer.Services.Tranactions;
 using DataAccessLayer.context;
 using DataAccessLayer.Entities;
 using DataAccessLayer.Repositories.Books;
 using DataAccessLayer.Repositories.Librarians;
+
 using DataAccessLayer.Repositories.Members;
+using DataAccessLayer.Repositories.Transactions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace LibraryManagementSysytem
 {
@@ -20,6 +24,8 @@ namespace LibraryManagementSysytem
 
             builder.Services.AddScoped<ILibrarianService, LibrarianService>();
             builder.Services.AddScoped<ILibrarianRepository, LibrarianRepository>();
+            builder.Services.AddScoped<ITranactionService, TranactionService>();
+            builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
             builder.Services.AddScoped<IMemberService, MemberService>();
             builder.Services.AddScoped<IMemberRepository, MemberRepository>();
             builder.Services.AddScoped<IBookService, BookService>();

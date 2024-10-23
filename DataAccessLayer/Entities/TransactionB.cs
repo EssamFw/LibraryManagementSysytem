@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataAccessLayer.Entities
 {
-    public class Transaction
+    public class TransactionB
     {
         public int ID { get; set; }
 
@@ -24,6 +24,9 @@ namespace DataAccessLayer.Entities
         [ForeignKey("Member")]
         public int MemberID_FK { get; set; }
         public Member Member { get; set; }
+
+        public List<BookTransaction> BookTransaction { get; set; }
+        public Book Book { get; set; }
     }
 
 }

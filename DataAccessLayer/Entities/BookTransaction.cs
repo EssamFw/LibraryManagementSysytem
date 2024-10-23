@@ -6,7 +6,7 @@
         public Book Book { get; set; } // Navigation property
 
         public int TransactionID { get; set; } // Foreign key
-        public Transaction Transaction { get; set; } // Navigation property
+        public TransactionB Transaction { get; set; } // Navigation property
 
         public int Amount { get; set; } // Number of copies involved in the transaction
 

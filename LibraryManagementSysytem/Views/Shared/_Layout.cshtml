@@ -30,35 +30,38 @@
 
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Member" asp-action="Index">Members</a>
+                        </li> 
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="TransactionB" asp-action="Create">New Tranaction</a>
                         </li>                        
 
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
-@*                         @if (_signInManger.IsSignedIn(User) && User.IsInRole("Admin"))
-                        { *@
+                        @* @if (_signInManger.IsSignedIn(User) && User.IsInRole("Admin")) *@
+                        @* { *@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">Users</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Role" asp-action="Index">Roles</a>
                             </li>
-                        @* } *@
-@*                         @if (_signInManger.IsSignedIn(User) && User.IsInRole("Admin"))
-                        { *@
+                        @* }  *@
+                       @* @if (_signInManger.IsSignedIn(User) && User.IsInRole("Admin")) *@
+                        @* { *@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="Index">Books</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Librarian" asp-action="Index">Librarian</a>
                             </li>
-                        @* } *@
-                        @* @if (_signInManger.IsSignedIn(User)) *@
+                        @* }  *@
+                         @* @if (_signInManger.IsSignedIn(User)) *@
                         @* { *@
                             <li class="nav-item ms-auto">
                                 <a class="nav-link text-light btn btn-danger" asp-area="" asp-controller="Account" asp-action="SignOut">Sign Out</a>
                             </li>
-                        @* } *@
+                         @* }  *@
  
 
                     </ul>

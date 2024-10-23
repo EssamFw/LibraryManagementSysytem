@@ -1,44 +1,37 @@
-﻿using System;
+﻿using BusinessLayer.DTOs.Transactions;
+using DataAccessLayer.Repositories.Transactions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
+using DataAccessLayer.Entities;
 
 namespace BusinessLayer.Services.Tranactions
 {
-    //public class TranactionService : ITranactionService
-    //{
-        //private readonly ITransactionService _transactionRepository;
+    public class TranactionService : ITranactionService
+    {
+        /*
+                 private readonly ILibrarianRepository _librarianRepository;
+        public LibrarianService(ILibrarianRepository liprarianarepository)
+        {
+            _librarianRepository = liprarianarepository;
+        }
+         */
+        private readonly ITransactionRepository _transactionRepository1;
+        public TranactionService(ITransactionRepository transactionRepository)
+        {
 
-        //public TransactionService(ITransactionService transactionRepository)
-        //{
-        //    _transactionRepository = transactionRepository;
-        //}
+            _transactionRepository1 = transactionRepository;
+        }
+        public async Task AddTransaction(AddTransactionDTO transactionDTO)
+        {
 
-        //public async Task<List<Transaction>> GetAllTransactionsAsync()
-        //{
-        //    return await _transactionRepository.GetAllTransactionsAsync();
-        //}
+            TransactionB transaction = transactionDTO.ToTransaction();
+            _transactionRepository1.Add(transaction);
+            _transactionRepository1.SaveChanges();
 
-        //public async Task<Transaction> GetTransactionByIdAsync(int id)
-        //{
-        //    return await _transactionRepository.GetTransactionByIdAsync(id);
-        //}
-
-        //public async Task AddTransactionAsync(Transaction transaction)
-        //{
-        //    await _transactionRepository.AddTransactionAsync(transaction);
-        //}
-
-        //public async Task UpdateTransactionAsync(Transaction transaction)
-        //{
-        //    await _transactionRepository.UpdateTransactionAsync(transaction);
-        //}
-
-        //public async Task DeleteTransactionAsync(int id)
-        //{
-        //    await _transactionRepository.DeleteTransactionAsync(id);
-        //}
-//    }
+        }
+    }
 }
